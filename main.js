@@ -90,9 +90,9 @@ function loadTasks() {
     tasks = [
       {
         id: crypto.randomUUID(),
-        title: "メール確認",
+        title: "タスクを追加する",
         duration: 10,
-        importance: 1,
+        importance: 0,
         status: "todo",
         lastTouched: null
       }

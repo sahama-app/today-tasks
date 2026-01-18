@@ -3,6 +3,8 @@ body {
   background: #f5f6f8;
   margin: 0;
   padding: 0;
+  font-size: 16px; /* PCでも少し大きく */
+  line-height: 1.5;
 }
 
 .app {
@@ -193,4 +195,28 @@ section {
   color: #777;
 }
 
+/* =====================
+   スマホ用の文字サイズ調整
+===================== */
+@media (max-width: 600px) {
+  body {
+    font-size: 18px;
+  }
 
+  .task-title {
+    font-size: 1.1em;
+  }
+
+  .task-time {
+    font-size: 0.9em;
+  }
+
+  button {
+    font-size: 1em;
+  }
+
+  input,
+  label {
+    font-size: 1em;
+  }
+}
