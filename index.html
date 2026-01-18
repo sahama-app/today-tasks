@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日やること</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<div class="app">
+
+  <!-- ① 今日やること -->
+  <section class="today">
+    <h2>今日やること</h2>
+    <div id="tasks"></div>
+  </section>
+
+  <!-- ② タスク追加 -->
+  <section class="add-task">
+    <h2>タスク追加</h2>
+
+    <input id="taskTitle" placeholder="タスク名">
+
+    <div class="duration-group">
+      <label><input type="radio" name="duration" value="10" checked>10分</label>
+      <label><input type="radio" name="duration" value="20">20分</label>
+      <label><input type="radio" name="duration" value="30">30分</label>
+      <label><input type="radio" name="duration" value="60">60分</label>
+    </div>
+<div class="add-actions">
+  <button id="importantBtn" type="button">重要</button>
+  <button id="addTaskBtn">追加</button>
+</div>
+
+  </section>
+
+  <!-- ③ 登録中タスク -->
+  <section class="all-tasks">
+  <h2>
+    登録中のタスク
+    <span id="taskCount"></span>
+  </h2>
+  <div id="allTasks"></div>
+</section>
+
+
+
+
+</div>
+
+
+  <!-- ★ JSは必ず body の一番下 -->
+  <script src="main.js"></script>
+</body>
+</html>
+
