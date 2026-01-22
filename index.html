@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>今日やること</title>
+  <title>おまかせToDo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -12,7 +12,10 @@
 
   <!-- ① 今日やること -->
   <section class="today">
-    <h2>今日やること</h2>
+    <h2 id="todayTitle">
+  今日やること
+  <span id="todayProgress"></span>
+</h2>
     <div id="tasks"></div>
   </section>
 
@@ -22,14 +25,14 @@
 
     <input id="taskTitle" placeholder="タスク名">
 
-    <div class="duration-group">
-      <label><input type="radio" name="duration" value="10" checked>10分</label>
-      <label><input type="radio" name="duration" value="20">20分</label>
-      <label><input type="radio" name="duration" value="30">30分</label>
-      <label><input type="radio" name="duration" value="60">60分</label>
-    </div>
+	<div class="flag-buttons">
+  <button id="urgentBtn" class="flag-btn urgent">至急</button>
+  <button id="importantBtn" class="flag-btn important">重要</button>
+  <button id="longBtn" class="flag-btn long">長時間</button>
+</div>
+
+
 <div class="add-actions">
-  <button id="importantBtn" type="button">重要</button>
   <button id="addTaskBtn">追加</button>
 </div>
 

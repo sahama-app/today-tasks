@@ -5,6 +5,7 @@ body {
   padding: 0;
   font-size: 16px; /* PCでも少し大きく */
   line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
 }
 
 .app {
@@ -48,19 +49,11 @@ button {
   cursor: pointer;
 }
 
-/* 開発用リセットボタン */
-.reset-btn {
-  background: transparent !important;
-  color: #666 !important;
-  border: 1px dashed #ccc;
-  font-size: 0.7rem;
-  padding: 6px 10px;
-}
-
 
 button:hover {
-  background: #4338ca;
+  filter: brightness(0.97);
 }
+
 
 .add-task {
   display: flex;
@@ -90,7 +83,15 @@ button:hover {
   height: auto;
   padding: 10px 16px;
   align-self: flex-start; /* 横に伸びない */
+  margin-bottom: 24px; /* ← ここを調整 */
 }
+
+#todayProgress {
+  font-size: 14px;
+  color: #6b7280;
+  margin-left: 6px;
+}
+
 
 .today-task {
   display: flex;
@@ -114,30 +115,29 @@ button:hover {
   align-items: center;
 }
 
+.task-item button {
+  white-space: nowrap;
+  padding: 6px 10px;
+  height: auto;
+  align-self: center;
+}
+
+
 .add-actions {
   display: flex;
   gap: 12px;
   margin-top: 12px;
 }
 
-#importantBtn {
-  flex: 1;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  background: #fff;
-  color: #555;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+#taskTitle {
+  width: 100%;
+  font-size: 18px;       /* 文字を大きく */
+  padding: 14px 12px;    /* 枠を大きく */
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
-#importantBtn.active {
-  background: #ff6b6b;
-  border-color: #ff6b6b;
-  color: #fff;
-  font-weight: bold;
-}
+
 
 #addTaskBtn {
   flex: 2;
@@ -195,6 +195,105 @@ section {
   color: #777;
 }
 
+.flag-buttons {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.flag-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1.5px solid;
+  transition: all 0.2s ease;
+}
+
+/* 色 */
+.flag-btn.urgent {
+  color: #2ecc71;
+  border-color: #2ecc71;
+}
+
+.flag-btn.important {
+  color: #ff6b3d;
+  border-color: #ff6b3d;
+}
+
+.flag-btn.long {
+  color: #3498db;
+  border-color: #3498db;
+}
+
+/* 押された状態 */
+.flag-btn.active {
+  color: white;
+}
+
+.flag-btn.urgent.active {
+  background: #2ecc71;
+}
+
+.flag-btn.important.active {
+  background: #ff6b3d;
+}
+
+.flag-btn.long.active {
+  background: #3498db;
+}
+
+.task-flags {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.flag-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+/* 色 */
+.flag-tag.urgent {
+  color: #2ecc71;
+  border-color: #2ecc71;
+}
+
+.flag-tag.important {
+  color: #ff6b3d;
+  border-color: #ff6b3d;
+}
+
+.flag-tag.long {
+  color: #3498db;
+  border-color: #3498db;
+}
+
+.today-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.postpone-btn {
+  background: transparent;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.done-btn {
+  background: #4f46e5;
+  color: white;
+}
+
+
 /* =====================
    スマホ用の文字サイズ調整
 ===================== */
@@ -220,3 +319,23 @@ section {
     font-size: 1em;
   }
 }
+
+/* スマホ横向き対策 */
+@media (max-width: 900px) and (orientation: landscape) {
+  body {
+    font-size: 18px; /* 横でも小さくしない */
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .task-title {
+    font-size: 1.05rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+  }
+}
+
